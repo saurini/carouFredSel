@@ -1,0 +1,69 @@
+/* Carousel Front-end Style */
+
+#ucsfhr-carousel-wrapper {
+    background-color: white;
+    height: 300px;
+    margin-top: 50px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+#ucsfhr-carousel-pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#ucsfhr-carousel-pagination a {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRFpaWl////w8PD2traJyt63AAAAFlJREFUeNqkkdsSACEIQhH+/59Xc5rtwlu8eVIjQgyJSFFdYaCqU3miCdmoMRsSWlQUOatNuQHxz84NgbOxWkGekGXiEl6hvchasub9M20gPjof8vUdnwADAOQKA4VxBqo6AAAAAElFTkSuQmCC);
+    display: inline-block;
+    height: 20px;
+    margin: 0 10px;
+    overflow: hidden;
+    text-indent: -1000px;
+    width: 20px;
+}
+
+#ucsfhr-carousel-pagination a.selected {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRF2tra////paWllZWVe3t7cnJyurq6o6Oj1tbWgICAjo6OwMDAzc3NmpqaqqqqxMTEvb29nZ2d3d3d0dHR2NjYsbGxysrKp6en/f39tbW1yMjIiYmJ29vb/v7+ra2thISET8KgaQAAANlJREFUeNpskdkSgyAMRSNYQNlkUZRq/f+/bFim40PzwJAD2W5gKLb7hWhnFr9XF8rhk5EhxiBN8h1emW/QbeP5qjAbAT8TJhfoeWFCqU2FcuF+gJ1gbFQ5WyulxfeN7HCakgqBXBg7GDoImARQFRzr+jEWQDIgmEg2kAjn+C0QcBGgA+c0pVhAg8PcqQM6z3OFCcNNA+/3fdMaXgqxBqZpHNdaqLQUaQXj63WL2lJtPswI0CbVmm9jxs+NKIk+5n9Bhss+pbPXU2QQT5HLOk5GtCbsbOv4CjAATdEOruWAOJkAAAAASUVORK5CYII=);
+}
+
+#ucsfhr-carousel {
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 100%;
+}
+
+#ucsfhr-carousel .slide {
+    border: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    height: 300px;
+    margin: 0 25px;
+    width: 750px;
+}
+
+#ucsfhr-carousel .slide-content{
+    background: white;
+    height: 100%;
+    float: right;
+    opacity: 0.75;
+    padding: 20px;
+    width: 350px;
+}
+
+#ucsfhr-carousel .slide-content h3 {
+    font-family: "Roboto Slab", Georgia, Times, Times New Roman, serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#ucsfhr-carousel .slide-content p {
+    line-height: 1.3em;
+}
