@@ -201,25 +201,31 @@ function ucsfhr_carousel_slides_form(){
 
 			$slide_number++;
 
+			$alignment_html = "<select name='ucsfhr_carousel_slides[$slide_number][text_alignment]' class='text-alignment'>";
+			$alignment_html .= "    <option value='right'>Default</option>";
+			$alignment_html .= "    <option value='left' " . ( $slide[ 'text_alignment' ] == 'left' ? 'selected' : '' ) . ">Left</option>";
+			$alignment_html .= "    <option value='right' " . ( $slide[ 'text_alignment' ] == 'right' ? 'selected' : '' ) . ">Right</option>";
+			$alignment_html .= "</select>";
+
 			echo <<< SLIDEHTML
 
 <div class="slide">
 	<h3>Slide #{$slide_number} (<span class="delete">Delete</span>)</h3>
 	
-	<input type="hidden" name="ucsfhr_carousel_slides[{$slide['id']}][id]" class="id" value="{$slide['id']}">
-	<input type="hidden" name="ucsfhr_carousel_slides[{$slide['id']}][image_url]" class="image-url" value="{$slide['image_url']}" size="50">
+	<input type="hidden" name="ucsfhr_carousel_slides[$slide_number][id]" class="id" value="$slide_number">
+	<input type="hidden" name="ucsfhr_carousel_slides[$slide_number][image_url]" class="image-url" value="{$slide['image_url']}" size="50">
 	<div class="text-title-link-container">
 		<div class="title-container">
 			<p class="label">Slide Title</p>
-			<input type="text" name="ucsfhr_carousel_slides[{$slide['id']}][title]" class="title" value="{$slide['title']}">
+			<input type="text" name="ucsfhr_carousel_slides[$slide_number][title]" class="title" value="{$slide['title']}">
 		</div>
 		<div class="text-container">
 			<p class="label">Slide Text</p>
-			<textarea class="text" rows="4" cols="50" name="ucsfhr_carousel_slides[{$slide['id']}][text]">{$slide['text']}</textarea>
+			<textarea class="text" rows="4" cols="50" name="ucsfhr_carousel_slides[$slide_number][text]">{$slide['text']}</textarea>
 		</div>
 		<div class="link-container">
 			<p class="label">Read More Link</p>
-			<input type="text" class="link" name="ucsfhr_carousel_slides[{$slide['id']}][link]" value="{$slide['link']}">
+			<input type="text" class="link" name="ucsfhr_carousel_slides[$slide_number][link]" value="{$slide['link']}">
 		</div>
 	</div>
 	<div class="image-display-container">
@@ -227,6 +233,12 @@ function ucsfhr_carousel_slides_form(){
 		<div class="upload-button-container">
 			<button class="image-upload-button" type="button" value="Upload Image">Modify Image</button>
 		</div>
+	</div>
+	<div class="slide-display-options">
+		<p>Text Alignment</p>
+		{$alignment_html}
+		<p>Text width</p>
+		<input type="text" name="ucsfhr_carousel_slides[$slide_number][text_width]" class="text-width" value="{$slide['text_width']}">
 	</div>
 </div>
 
@@ -297,8 +309,8 @@ function ucsfhr_carousel(){
 	foreach( $slides as $slide ){
 
 		echo <<< SLIDEHTML
-			<div class="slide slide{$slide['id']}"  style="background: url( {$slide['image_url']} ) 0 0 no-repeat;">
-				<div class="slide-content">
+			<div class="slide slide$slide_number"  style="background: url( {$slide['image_url']} ) 0 0 no-repeat;">
+				<div class="slide-content" style="float: {$slide['text_alignment']}; width: {$slide[ 'text_width']}px;">
 					<h3>{$slide['title']}</h3>
 					<p>{$slide['text']}</p>
 					<a href="{$slide['link']}">Read More</a>

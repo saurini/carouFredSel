@@ -82,8 +82,19 @@ Admin Javscript for UCSFHR Carousel
 
 		var slide_image_display		= $( '<img class="slide-image-display" />' );
 		var image_display_container	= $( '<div class="image-display-container" />' ).append( slide_image_display, upload_button_container );
+/*<div class="slide-display-options">
+		<p>Slide Text Alignment</p>
+		{$alignment_html}
+		<p>Text width</p>
+		<input type="text" name="ucsfhr_carousel_slides[{$slide[$slide_number]}][text_width]" class="text-width" value="{$slide['text_width']}">
+	</div>*/
+		var slide_display_alignment_label = $( '<p class="label">Text Alignment</p>' );
+		var slide_display_alignment_select = $( '<select name="ucsfhr_carousel_slides['+new_slide+'][text_alignment]" class="text-alignment"><option value="right">Default</option><option value="left">Left</option><option value="right">Right</option></select>' );
+		var slide_display_width_label = $( '<p class="label">Text Width</p>' );
+		var slide_display_width_input = $( '<input type="text" name="ucsfhr_carousel_slides['+new_slide+'][text_width]" class="text-width" value="">' );
+		var slide_display_options_container = $( '<div class="slide-display-options" />' ).append( slide_display_alignment_label, slide_display_alignment_select, slide_display_width_label, slide_display_width_input );
 
-		slide_div.append( slide_id, slide_image_url, slide_number_container, text_title_link, image_display_container );
+		slide_div.append( slide_id, slide_image_url, slide_number_container, text_title_link, image_display_container, slide_display_options_container );
 
 		$( '#new-slides' ).append( slide_div );
 
